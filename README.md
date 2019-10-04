@@ -7,7 +7,7 @@ Please be aware, because this module will allow for a dynamic number of columns 
 
 The reason it is slower is because it uses string concatenation, which is one of the slower processes for any language...  Node js (as of v12) performs string concatenation with the += operation faster than by any other means.  As well, string interpolation using the back-tick symbol is faster than multiple string concatenations.  So I have used that wherever possible.  The performance is still very good, but still slower than hardcoding the names of your columns and the number of values.
 
-As a side-note: any method with the word "create" in the name (usually found in db-query-interpreter.ts) could probably be optimized in future version of node.  I truly hate using loops to create concatenated strings, but I don't have much choice here.
+As a side-note: any method with the word "create" in the name (usually found in db-query-interpreter.ts) could probably be optimized in future version of node.  I truly hate using loops to create concatenated strings, but I don't have much choice here.  As well, caching segments of strings to Redis will let you bypass recreating large strings, and piece them together from cache.  But I didn't want to add Redis as another dependency here.
 
 The exported queries are insert, select, selectById, and update.
 
