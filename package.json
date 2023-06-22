@@ -9,7 +9,7 @@
   "author": "O. Jacob Sung",
   "license": "MIT",
   "dependencies": {
-    "pg": "7.12.1"
+    "pg": "8.11.0"
   },
   "devDependencies": {
     "@types/node": "12.7.11",
